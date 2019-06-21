@@ -977,7 +977,8 @@ btc.signP2SHTransaction(
     lockTime?: number = DEFAULT_LOCKTIME,
     sigHashType?: number = SIGHASH_ALL,
     segwit?: boolean = false,
-    transactionVersion?: number = DEFAULT_VERSION
+    transactionVersion?: number = DEFAULT_VERSION,
+    timeStamp?: number = 0
   ) {
     // Inputs are provided as arrays of [transaction, output_index, redeem script, optional sequence]
     // associatedKeysets are provided as arrays of [path]
@@ -985,6 +986,8 @@ btc.signP2SHTransaction(
     const nullPrevout = Buffer.alloc(0);
     const defaultVersion = Buffer.alloc(4);
     defaultVersion.writeUInt32LE(transactionVersion, 0);
+    const defaultTime = Buffer.alloc(4);
+    defaultTime.writeUInt32LE(timeStamp, 0);
     const trustedInputs = [];
     const regularOutputs: Array<TransactionOutput> = [];
     const signatures = [];
@@ -993,6 +996,10 @@ btc.signP2SHTransaction(
     let targetTransaction: Transaction = {
       inputs: [],
       version: defaultVersion
+    };
+
+    if (timeStamp>0) {
+        targetTransaction.timestamp = defaultTime;
     };
 
     const getTrustedInputCall = segwit
