@@ -1087,11 +1087,7 @@ btc.signP2SHTransaction(
                 lockTime,
                 sigHashType
               ).then(signature => {
-                signatures.push(
-                  segwit
-                    ? signature.toString("hex")
-                    : signature.slice(0, signature.length - 1).toString("hex")
-                );
+                signatures.push(signature.toString("hex"));
                 targetTransaction.inputs[i].script = nullScript;
                 if (firstRun) {
                   firstRun = false;
