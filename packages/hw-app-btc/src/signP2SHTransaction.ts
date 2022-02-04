@@ -150,7 +150,7 @@ export async function signP2SHTransaction(
 
     await startUntrustedHashTransactionInput(
       transport,
-      !segwit && firstRun,
+      firstRun,
       pseudoTX,
       pseudoTrustedInputs,
       segwit
