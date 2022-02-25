@@ -1,6 +1,5 @@
 {
-  "name": "@ledgerhq/hw-app-btc",
-  "version": "6.24.1",
+  "name": "@backpacker69/hw-app-btc",
   "description": "Ledger Hardware Wallet Bitcoin Application API",
   "keywords": [
     "Ledger",
@@ -13,12 +12,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/LedgerHQ/ledgerjs"
+    "url": "https://github.com/backpacker69/ledgerjs"
   },
   "bugs": {
-    "url": "https://github.com/LedgerHQ/ledgerjs/issues"
+    "url": "https://github.com/backpacker69/ledgerjs/issues"
   },
-  "homepage": "https://github.com/LedgerHQ/ledgerjs",
+  "homepage": "https://github.com/backpacker69/ledgerjs",
   "publishConfig": {
     "access": "public"
   },

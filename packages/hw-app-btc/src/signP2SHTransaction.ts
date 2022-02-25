@@ -136,10 +136,7 @@ export async function signP2SHTransaction(
 
     if (initialTimestamp !== undefined) {
       pseudoTX.timestamp = Buffer.alloc(4);
-      pseudoTX.timestamp.writeUInt32LE(
-        Math.floor(initialTimestamp + (Date.now() - startTime) / 1000),
-        0
-      );
+      pseudoTX.timestamp.writeUInt32LE(initialTimestamp, 0);
     }
 
     if (segwit) {

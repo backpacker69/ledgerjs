@@ -241,10 +241,7 @@ export async function createTransaction(
 
   if (initialTimestamp !== undefined) {
     targetTransaction.timestamp = Buffer.alloc(4);
-    targetTransaction.timestamp.writeUInt32LE(
-      Math.floor(initialTimestamp + (Date.now() - startTime) / 1000),
-      0
-    );
+    targetTransaction.timestamp.writeUInt32LE(initialTimestamp, 0);
   }
 
   onDeviceSignatureRequested();
